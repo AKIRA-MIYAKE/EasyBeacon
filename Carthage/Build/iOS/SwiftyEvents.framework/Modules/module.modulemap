@@ -1,0 +1,10 @@
+framework module SwiftyEvents {
+  umbrella header "SwiftyEvents.h"
+
+  export *
+  module * { export * }
+}
+
+module SwiftyEvents.Swift {
+    header "SwiftyEvents-Swift.h"
+}

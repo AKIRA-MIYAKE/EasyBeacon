@@ -10,6 +10,17 @@
 		A66D4FEC1B198D2A005BB932 /* EasyBeacon.h in Headers */ = {isa = PBXBuildFile; fileRef = A66D4FEB1B198D2A005BB932 /* EasyBeacon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A66D4FF21B198D2A005BB932 /* EasyBeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66D4FE61B198D2A005BB932 /* EasyBeacon.framework */; };
 		A66D4FF91B198D2A005BB932 /* EasyBeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D4FF81B198D2A005BB932 /* EasyBeaconTests.swift */; };
+		A66D50051B198D8E005BB932 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D50041B198D8E005BB932 /* Beacon.swift */; };
+		A66D50071B198D9A005BB932 /* BeaconRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D50061B198D9A005BB932 /* BeaconRegion.swift */; };
+		A66D50091B198DA4005BB932 /* Working.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D50081B198DA4005BB932 /* Working.swift */; };
+		A66D500B1B198DBB005BB932 /* Avairable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D500A1B198DBB005BB932 /* Avairable.swift */; };
+		A66D500D1B198DC9005BB932 /* EnteringBeaconRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D500C1B198DC9005BB932 /* EnteringBeaconRegion.swift */; };
+		A66D500F1B198DDB005BB932 /* ProximityBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D500E1B198DDB005BB932 /* ProximityBeacon.swift */; };
+		A66D50111B198DE4005BB932 /* EasyBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D50101B198DE4005BB932 /* EasyBeacon.swift */; };
+		A66D50131B198DF5005BB932 /* BeaconMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D50121B198DF5005BB932 /* BeaconMonitor.swift */; };
+		A66D50151B198E00005BB932 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D50141B198E00005BB932 /* BeaconManager.swift */; };
+		A66D50171B198E4A005BB932 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66D50161B198E4A005BB932 /* CoreLocation.framework */; };
+		A66D50191B199080005BB932 /* SwiftyEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66D50181B199080005BB932 /* SwiftyEvents.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +40,17 @@
 		A66D4FF11B198D2A005BB932 /* EasyBeaconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyBeaconTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66D4FF71B198D2A005BB932 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A66D4FF81B198D2A005BB932 /* EasyBeaconTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyBeaconTests.swift; sourceTree = "<group>"; };
+		A66D50041B198D8E005BB932 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		A66D50061B198D9A005BB932 /* BeaconRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconRegion.swift; sourceTree = "<group>"; };
+		A66D50081B198DA4005BB932 /* Working.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Working.swift; sourceTree = "<group>"; };
+		A66D500A1B198DBB005BB932 /* Avairable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avairable.swift; sourceTree = "<group>"; };
+		A66D500C1B198DC9005BB932 /* EnteringBeaconRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnteringBeaconRegion.swift; sourceTree = "<group>"; };
+		A66D500E1B198DDB005BB932 /* ProximityBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximityBeacon.swift; sourceTree = "<group>"; };
+		A66D50101B198DE4005BB932 /* EasyBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyBeacon.swift; sourceTree = "<group>"; };
+		A66D50121B198DF5005BB932 /* BeaconMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconMonitor.swift; sourceTree = "<group>"; };
+		A66D50141B198E00005BB932 /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
+		A66D50161B198E4A005BB932 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A66D50181B199080005BB932 /* SwiftyEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyEvents.framework; path = Carthage/Build/iOS/SwiftyEvents.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A66D50191B199080005BB932 /* SwiftyEvents.framework in Frameworks */,
+				A66D50171B198E4A005BB932 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +77,8 @@
 		A66D4FDC1B198D2A005BB932 = {
 			isa = PBXGroup;
 			children = (
+				A66D50181B199080005BB932 /* SwiftyEvents.framework */,
+				A66D50161B198E4A005BB932 /* CoreLocation.framework */,
 				A66D4FE81B198D2A005BB932 /* EasyBeacon */,
 				A66D4FF51B198D2A005BB932 /* EasyBeaconTests */,
 				A66D4FE71B198D2A005BB932 /* Products */,
@@ -72,6 +98,11 @@
 			isa = PBXGroup;
 			children = (
 				A66D4FEB1B198D2A005BB932 /* EasyBeacon.h */,
+				A66D50101B198DE4005BB932 /* EasyBeacon.swift */,
+				A66D50141B198E00005BB932 /* BeaconManager.swift */,
+				A66D50121B198DF5005BB932 /* BeaconMonitor.swift */,
+				A66D50021B198D5A005BB932 /* Models */,
+				A66D50031B198D66005BB932 /* Entities */,
 				A66D4FE91B198D2A005BB932 /* Supporting Files */,
 			);
 			path = EasyBeacon;
@@ -102,6 +133,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A66D50021B198D5A005BB932 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A66D500A1B198DBB005BB932 /* Avairable.swift */,
+				A66D500C1B198DC9005BB932 /* EnteringBeaconRegion.swift */,
+				A66D500E1B198DDB005BB932 /* ProximityBeacon.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A66D50031B198D66005BB932 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				A66D50081B198DA4005BB932 /* Working.swift */,
+				A66D50061B198D9A005BB932 /* BeaconRegion.swift */,
+				A66D50041B198D8E005BB932 /* Beacon.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -124,6 +175,7 @@
 				A66D4FE21B198D2A005BB932 /* Frameworks */,
 				A66D4FE31B198D2A005BB932 /* Headers */,
 				A66D4FE41B198D2A005BB932 /* Resources */,
+				A66D501A1B199088005BB932 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -204,11 +256,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A66D501A1B199088005BB932 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyEvents.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A66D4FE11B198D2A005BB932 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A66D50051B198D8E005BB932 /* Beacon.swift in Sources */,
+				A66D500B1B198DBB005BB932 /* Avairable.swift in Sources */,
+				A66D50091B198DA4005BB932 /* Working.swift in Sources */,
+				A66D50151B198E00005BB932 /* BeaconManager.swift in Sources */,
+				A66D500F1B198DDB005BB932 /* ProximityBeacon.swift in Sources */,
+				A66D500D1B198DC9005BB932 /* EnteringBeaconRegion.swift in Sources */,
+				A66D50071B198D9A005BB932 /* BeaconRegion.swift in Sources */,
+				A66D50131B198DF5005BB932 /* BeaconMonitor.swift in Sources */,
+				A66D50111B198DE4005BB932 /* EasyBeacon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,25 +401,36 @@
 		A66D4FFD1B198D2A005BB932 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = EasyBeacon/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		A66D4FFE1B198D2A005BB932 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = EasyBeacon/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -399,6 +488,7 @@
 				A66D4FFE1B198D2A005BB932 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A66D4FFF1B198D2A005BB932 /* Build configuration list for PBXNativeTarget "EasyBeaconTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +497,7 @@
 				A66D50011B198D2A005BB932 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
