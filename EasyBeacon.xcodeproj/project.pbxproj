@@ -140,7 +140,7 @@
 				A66D500C1B198DC9005BB932 /* EnteringBeaconRegion.swift */,
 				A66D500E1B198DDB005BB932 /* ProximityBeacon.swift */,
 			);
-			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A66D50031B198D66005BB932 /* Entities */ = {
