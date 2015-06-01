@@ -1,8 +1,8 @@
 //
-//  Avairable.swift
+//  Available.swift
 //  EasyBeacon
 //
-//  Created by MiyakeAkira on 2015/05/30.
+//  Created by MiyakeAkira on 2015/06/01.
 //  Copyright (c) 2015年 Miyake Akira. All rights reserved.
 //
 

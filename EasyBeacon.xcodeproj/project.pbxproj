@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6111DBB1B1CA64C00FA33D9 /* Available.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6111DBA1B1CA64C00FA33D9 /* Available.swift */; };
 		A66D4FEC1B198D2A005BB932 /* EasyBeacon.h in Headers */ = {isa = PBXBuildFile; fileRef = A66D4FEB1B198D2A005BB932 /* EasyBeacon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A66D4FF21B198D2A005BB932 /* EasyBeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66D4FE61B198D2A005BB932 /* EasyBeacon.framework */; };
 		A66D4FF91B198D2A005BB932 /* EasyBeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D4FF81B198D2A005BB932 /* EasyBeaconTests.swift */; };
 		A66D50051B198D8E005BB932 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D50041B198D8E005BB932 /* Beacon.swift */; };
 		A66D50071B198D9A005BB932 /* BeaconRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D50061B198D9A005BB932 /* BeaconRegion.swift */; };
 		A66D50091B198DA4005BB932 /* Working.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D50081B198DA4005BB932 /* Working.swift */; };
-		A66D500B1B198DBB005BB932 /* Avairable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D500A1B198DBB005BB932 /* Avairable.swift */; };
 		A66D500D1B198DC9005BB932 /* EnteringBeaconRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D500C1B198DC9005BB932 /* EnteringBeaconRegion.swift */; };
 		A66D500F1B198DDB005BB932 /* ProximityBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D500E1B198DDB005BB932 /* ProximityBeacon.swift */; };
 		A66D50111B198DE4005BB932 /* EasyBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D50101B198DE4005BB932 /* EasyBeacon.swift */; };
@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A6111DBA1B1CA64C00FA33D9 /* Available.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Available.swift; sourceTree = "<group>"; };
 		A66D4FE61B198D2A005BB932 /* EasyBeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyBeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66D4FEA1B198D2A005BB932 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A66D4FEB1B198D2A005BB932 /* EasyBeacon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyBeacon.h; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		A66D50041B198D8E005BB932 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		A66D50061B198D9A005BB932 /* BeaconRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconRegion.swift; sourceTree = "<group>"; };
 		A66D50081B198DA4005BB932 /* Working.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Working.swift; sourceTree = "<group>"; };
-		A66D500A1B198DBB005BB932 /* Avairable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avairable.swift; sourceTree = "<group>"; };
 		A66D500C1B198DC9005BB932 /* EnteringBeaconRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnteringBeaconRegion.swift; sourceTree = "<group>"; };
 		A66D500E1B198DDB005BB932 /* ProximityBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximityBeacon.swift; sourceTree = "<group>"; };
 		A66D50101B198DE4005BB932 /* EasyBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyBeacon.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		A66D50021B198D5A005BB932 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A66D500A1B198DBB005BB932 /* Avairable.swift */,
+				A6111DBA1B1CA64C00FA33D9 /* Available.swift */,
 				A66D500C1B198DC9005BB932 /* EnteringBeaconRegion.swift */,
 				A66D500E1B198DDB005BB932 /* ProximityBeacon.swift */,
 			);
@@ -279,7 +279,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A66D50051B198D8E005BB932 /* Beacon.swift in Sources */,
-				A66D500B1B198DBB005BB932 /* Avairable.swift in Sources */,
 				A66D50091B198DA4005BB932 /* Working.swift in Sources */,
 				A66D50151B198E00005BB932 /* BeaconManager.swift in Sources */,
 				A66D500F1B198DDB005BB932 /* ProximityBeacon.swift in Sources */,
@@ -287,6 +286,7 @@
 				A66D50071B198D9A005BB932 /* BeaconRegion.swift in Sources */,
 				A66D50131B198DF5005BB932 /* BeaconMonitor.swift in Sources */,
 				A66D50111B198DE4005BB932 /* EasyBeacon.swift in Sources */,
+				A6111DBB1B1CA64C00FA33D9 /* Available.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
