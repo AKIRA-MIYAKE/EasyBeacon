@@ -45,11 +45,7 @@ Observing a Proximity Beacon Event
       // do something
     }
 
-    manager.proximityBeacon.on(.WillUpdate) { beacon in
-      // do something
-    }
-
-    manager.proximityBeacon.on(.DidUpdate) { beacon in
+    manager.proximityBeacon.on(.Updated) { beacon in
       // do something
     }
 
