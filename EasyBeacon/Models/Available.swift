@@ -39,6 +39,8 @@ public class _Available<E, A>: EventEmitter<AvailableEvent, Bool> {
     
     public init(value: Bool) {
         self.value = value
+        
+        super.init()
     }
     
 }
