@@ -9,22 +9,14 @@
 import Foundation
 import SwiftyEvents
 
-public class EnteringBeaconRegion: Emittable {
-    
-    public enum Event {
-        case Enter
-        case Exit
-    }
-    
-    public typealias EventType = Event
-    public typealias ArgumentType = BeaconRegion
-    public typealias FunctionType = ArgumentType -> Void
-    
-    
-    // MARK: - let
-    
-    private let emitter = EventEmitter<EventType, ArgumentType>()
-    
+public typealias EnteringBeaconRegion = _EnteringBeaconRegion<EnteringBeaconRegionEvent, BeaconRegion>
+
+public enum EnteringBeaconRegionEvent {
+    case Enter
+    case Exit
+}
+
+public class _EnteringBeaconRegion<E: Hashable, A>: EventEmitter<EnteringBeaconRegionEvent, BeaconRegion> {
     
     // MARK: - Variables
     
@@ -40,45 +32,6 @@ public class EnteringBeaconRegion: Emittable {
                 value.map { emit(.Enter, argument: $0) }
             }
         }
-    }
-    
-    
-    // MARK: - Emittable
-    
-    public func on(event: EventType, _ function: FunctionType) -> Listener<ArgumentType> {
-        return emitter.on(event, function)
-    }
-    
-    public func on(event: EventType, listener: Listener<ArgumentType>) -> Listener<ArgumentType> {
-        return emitter.on(event, listener: listener)
-    }
-    
-    public func once(event: EventType, _ function: FunctionType) -> Listener<ArgumentType> {
-        return emitter.once(event, function)
-    }
-    
-    public func removeListener(event: EventType, listener: Listener<ArgumentType>) {
-        emitter.removeListener(event, listener: listener)
-    }
-    
-    public func removeAllListeners() {
-        emitter.removeAllListeners()
-    }
-    
-    public func removeAllListeners(events: [EventType]) {
-        emitter.removeAllListeners(events)
-    }
-    
-    public func listeners(event: EventType) -> [Listener<ArgumentType>] {
-        return emitter.listeners(event)
-    }
-    
-    public func emit(event: EventType, argument: ArgumentType) -> Bool {
-        return emitter.emit(event, argument: argument)
-    }
-    
-    public func newListener(function: FunctionType) -> Listener<ArgumentType> {
-        return emitter.newListener(function)
     }
     
 }

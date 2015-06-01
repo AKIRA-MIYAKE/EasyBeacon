@@ -9,89 +9,36 @@
 import Foundation
 import SwiftyEvents
 
-public class ProximityBeacon: Emittable {
-    
-    public enum Event {
-        case Approached
-        case WillUpdate
-        case DidUpdate
-        case Withdrew
-    }
-    
-    public typealias EventType = Event
-    public typealias ArgumentType = Beacon
-    public typealias FunctionType = ArgumentType -> Void
-    
-    
-    // MARK: - let
-    
-    private let emitter = EventEmitter<EventType, ArgumentType>()
+public typealias ProximityBeacon = _ProximityBeacon<ProximityBeaconEvent, Beacon>
+
+public enum ProximityBeaconEvent {
+    case Approached
+    case Updated
+    case Withdrew
+}
+
+public class _ProximityBeacon<E: Hashable, A>: EventEmitter<ProximityBeaconEvent, Beacon> {
     
     // MARK: - Variables
     
     public var value: Beacon? {
         willSet {
-            if newValue != value {
+            if newValue == nil && value != nil {
                 value.map { emit(.Withdrew, argument: $0) }
-            } else {
-                if let newBeacon = newValue, let beacon = value {
-                    if newBeacon.proximity != beacon.proximity {
-                        emit(.WillUpdate, argument: beacon)
-                    }
-                }
             }
         }
         
         didSet {
-            if oldValue != value {
+            if oldValue == nil && value != nil {
                 value.map { emit(.Approached, argument: $0) }
-            } else {
+            } else if oldValue == value {
                 if let oldBeacon = oldValue, let beacon = value {
                     if oldBeacon.proximity != beacon.proximity {
-                        emit(.DidUpdate, argument: beacon)
+                        emit(.Updated, argument: beacon)
                     }
                 }
             }
         }
-    }
-    
-    
-    // MARK: - Emittable
-    
-    public func on(event: EventType, _ function: FunctionType) -> Listener<ArgumentType> {
-        return emitter.on(event, function)
-    }
-    
-    public func on(event: EventType, listener: Listener<ArgumentType>) -> Listener<ArgumentType> {
-        return emitter.on(event, listener: listener)
-    }
-    
-    public func once(event: EventType, _ function: FunctionType) -> Listener<ArgumentType> {
-        return emitter.once(event, function)
-    }
-    
-    public func removeListener(event: EventType, listener: Listener<ArgumentType>) {
-        emitter.removeListener(event, listener: listener)
-    }
-    
-    public func removeAllListeners() {
-        emitter.removeAllListeners()
-    }
-    
-    public func removeAllListeners(events: [EventType]) {
-        emitter.removeAllListeners(events)
-    }
-    
-    public func listeners(event: EventType) -> [Listener<ArgumentType>] {
-        return emitter.listeners(event)
-    }
-    
-    public func emit(event: EventType, argument: ArgumentType) -> Bool {
-        return emitter.emit(event, argument: argument)
-    }
-    
-    public func newListener(function: FunctionType) -> Listener<ArgumentType> {
-        return emitter.newListener(function)
     }
     
 }
