@@ -41,14 +41,11 @@ Observing a Region Event
 
 Observing a Proximity Beacon Event  
 
-    manager.proximityBeacon.on(.Approached) { beacon in
+    manager.proximityBeacon.on(.WillUpdate) { beacon in
       // do something
     }
 
-    manager.proximityBeacon.on(.Updated) { beacon in
+    manager.proximityBeacon.on(.DidUpdate) { beacon in
       // do something
     }
 
-    manager.proximityBeacon.on(.Withdrew) { beacon in
-      // do something
-    }
