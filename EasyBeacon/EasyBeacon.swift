@@ -11,7 +11,7 @@ import Foundation
 public class EasyBeacon {
     
     private static var beaconMonitor: BeaconMonitor?
-    private static var working: Working = .Always
+    private static var usage: Usage = .Always
     private static var regions: Set<BeaconRegion> = Set<BeaconRegion>()
     
     public static func defaultManager() -> BeaconManager {
@@ -20,7 +20,7 @@ public class EasyBeacon {
         if let beaconMonitor = beaconMonitor {
             monitor = beaconMonitor
         } else {
-            monitor = BeaconMonitor(regions: regions, working: working)
+            monitor = BeaconMonitor(regions: regions, usage: usage)
             beaconMonitor = monitor
         }
         
@@ -35,16 +35,16 @@ public class EasyBeacon {
         return BeaconManager(monitor: monitor)
     }
     
-    public static func setWorking(working: Working) {
-        self.working = working
+    public static func setWorking(usage: Usage) {
+        self.usage = usage
         
-        beaconMonitor = BeaconMonitor(regions: regions, working: working)
+        beaconMonitor = BeaconMonitor(regions: regions, usage: usage)
     }
     
     public static func setBeaconRegions(regions: Set<BeaconRegion>) {
         self.regions = regions
         
-        beaconMonitor = BeaconMonitor(regions: regions, working: working)
+        beaconMonitor = BeaconMonitor(regions: regions, usage: usage)
     }
     
 }

@@ -22,7 +22,7 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     let failEmitter = EventEmitter<FailEvent, NSError>()
     
     let regions: Set<BeaconRegion>
-    let working: Working
+    let usage: Usage
     
     let available: Available
     let enteringBeaconRegion: EnteringBeaconRegion
@@ -42,9 +42,9 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     
     // MARK: - Initialize
     
-    init(regions: Set<BeaconRegion>, working: Working) {
+    init(regions: Set<BeaconRegion>, usage: Usage) {
         self.regions = regions
-        self.working = working
+        self.usage = usage
         
         manager = CLLocationManager()
         
@@ -67,15 +67,15 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
         
         switch CLLocationManager.authorizationStatus() {
         case .AuthorizedAlways:
-            if working == .Always {
+            if usage == .Always {
                 available.value = true
             }
         case .AuthorizedWhenInUse:
-            if working == .WhenInUse {
+            if usage == .WhenInUse {
                 available.value = false
             }
         case .NotDetermined:
-            switch working {
+            switch usage {
             case .Always:
                 manager.requestAlwaysAuthorization()
             case .WhenInUse:
@@ -153,7 +153,7 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     // MARK: - Selector
     
     func handleWillEnterForgroundNotification(notification: NSNotification) {
-        switch working {
+        switch usage {
         case .Always:
             break
         case .WhenInUse:
@@ -162,7 +162,7 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     }
     
     func handleDidEnterBackgroundNotification(notfication: NSNotification) {
-        switch working {
+        switch usage {
         case .Always:
             break
         case .WhenInUse:
@@ -176,11 +176,11 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         switch status {
         case .AuthorizedAlways:
-            if working == .Always {
+            if usage == .Always {
                 available.value = true
             }
         case .AuthorizedWhenInUse:
-            if working == .WhenInUse {
+            if usage == .WhenInUse {
                 available.value = true
             }
         default:
