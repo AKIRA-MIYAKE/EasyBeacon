@@ -16,20 +16,20 @@ public enum AvailableEvent {
     case DidUpdate
 }
 
-public class _Available<E, A>: EventEmitter<AvailableEvent, Bool> {
+public class _Available<E, V>: EventEmitter<AvailableEvent, Bool> {
     
     // MARK: - Variables
     
     public var value: Bool {
         willSet {
             if value != newValue {
-                emit(.WillUpdate, argument: value)
+                emit(.WillUpdate, value: value)
             }
         }
         
         didSet {
             if value != oldValue {
-                emit(.DidUpdate, argument: value)
+                emit(.DidUpdate, value: value)
             }
         }
     }

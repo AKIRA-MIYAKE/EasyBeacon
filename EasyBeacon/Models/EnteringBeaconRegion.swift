@@ -16,20 +16,20 @@ public enum EnteringBeaconRegionEvent {
     case Exit
 }
 
-public class _EnteringBeaconRegion<E: Hashable, A>: EventEmitter<EnteringBeaconRegionEvent, BeaconRegion> {
+public class _EnteringBeaconRegion<E: Hashable, V>: EventEmitter<EnteringBeaconRegionEvent, BeaconRegion> {
     
     // MARK: - Variables
     
     public var value: BeaconRegion? {
         willSet {
             if newValue != value {
-                value.map { emit(.Exit, argument: $0) }
+                value.map { emit(.Exit, value: $0) }
             }
         }
         
         didSet {
             if oldValue != value {
-                value.map { emit(.Enter, argument: $0) }
+                value.map { emit(.Enter, value: $0) }
             }
         }
     }

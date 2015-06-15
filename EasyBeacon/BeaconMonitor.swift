@@ -240,10 +240,10 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         if let error = error {
-            failEmitter.emit(.DidFail, argument: error)
+            failEmitter.emit(.DidFail, value: error)
         } else {
             let error = NSError(domain: "", code: 0, userInfo: nil)
-            failEmitter.emit(.DidFail, argument: error)
+            failEmitter.emit(.DidFail, value: error)
         }
     }
     

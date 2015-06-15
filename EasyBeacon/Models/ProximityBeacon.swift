@@ -16,17 +16,17 @@ public enum ProximityBeaconEvent {
     case DidUpdate
 }
 
-public class _ProximityBeacon<E: Hashable, A>: EventEmitter<ProximityBeaconEvent, Beacon?> {
+public class _ProximityBeacon<E: Hashable, V>: EventEmitter<ProximityBeaconEvent, Beacon?> {
     
     // MARK: - Variables
     
     public var value: Beacon? {
         willSet {
-            emit(.WillUpdate, argument: value)
+            emit(.WillUpdate, value: value)
         }
         
         didSet {
-            emit(.DidUpdate, argument: value)
+            emit(.DidUpdate, value: value)
         }
     }
     
