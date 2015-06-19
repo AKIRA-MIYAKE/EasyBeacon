@@ -11,12 +11,17 @@ import CoreLocation
 
 public struct Beacon: Hashable {
     
-    public enum Proximity {
-        case Unknown
-        case Immediate
-        case Near
-        case Far
+    public enum Proximity: String {
+        case Unknown = "Unknown"
+        case Immediate = "Immediate"
+        case Near = "Near"
+        case Far = "Far"
+        
+        public func toString() -> String {
+            return self.rawValue
+        }
     }
+    
     
     public let beacon: CLBeacon
     
