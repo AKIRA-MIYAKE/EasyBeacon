@@ -19,15 +19,15 @@ Creating a Region of Beacon
 
 Adding Target Regions  
 
-    EasyBeacon.setBeaconRegions([region])
+    EasyBeacon.Service.setBeaconRegions([region])
 
 Setting When to Working  
 
-    EasyBeacon.setWorking(.Always)
+    EasyBeacon.Service.setWorking(.Always)
 
 Getting a Manager  
 
-    let manager = EasyBeacon.defaultManager()
+    let manager = EasyBeacon.Service.defaultManager()
 
 Observing a Region Event
 
@@ -48,4 +48,3 @@ Observing a Proximity Beacon Event
     manager.proximityBeacon.on(.DidUpdate) { beacon in
       // do something
     }
-

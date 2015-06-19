@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class EasyBeacon {
+public class Service {
     
     private static var beaconMonitor: BeaconMonitor?
     private static var usage: Usage = .Always
