@@ -175,7 +175,6 @@
 				A66D4FE21B198D2A005BB932 /* Frameworks */,
 				A66D4FE31B198D2A005BB932 /* Headers */,
 				A66D4FE41B198D2A005BB932 /* Resources */,
-				A66D501A1B199088005BB932 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -255,23 +254,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A66D501A1B199088005BB932 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyEvents.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = "/usr/local/bin/carthage copy-frameworks";
-			shellScript = "";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A66D4FE11B198D2A005BB932 /* Sources */ = {
