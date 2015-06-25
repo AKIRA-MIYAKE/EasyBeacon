@@ -17,6 +17,10 @@ public class BeaconManager {
     
     // MARK: - Variables
     
+    public var available: Available {
+        return monitor.available
+    }
+    
     public var enteringBeaconRegion: EnteringBeaconRegion {
         return monitor.enteringBeaconRegion
     }
