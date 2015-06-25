@@ -8,6 +8,10 @@ Specify it in your `Cartfile`:
 
 # Usage
 
+First, Setting Usage
+
+    EasyBeacon.Service.setUsage(.Always)
+
 Creating a Region of Beacon  
 
     let region = BeaconRegion(
@@ -21,10 +25,6 @@ Adding Target Regions
 
     EasyBeacon.Service.setBeaconRegions([region])
 
-Setting When to Working  
-
-    EasyBeacon.Service.setWorking(.Always)
-
 Getting a Manager  
 
     let manager = EasyBeacon.Service.defaultManager()
@@ -36,6 +36,16 @@ Observing a Region Event
     }
 
     manager.enteringBeaconRegion.on(.Exit) { region in
+      // do something
+    }
+
+Observing a Ranged Beacons Event
+
+    manager.rangedBeacons.on(.WillUpdate) { beacons in
+      // do something
+    }
+    
+    manager.rangedBeacons.on(.DidUpdate) { beacons in
       // do something
     }
 
