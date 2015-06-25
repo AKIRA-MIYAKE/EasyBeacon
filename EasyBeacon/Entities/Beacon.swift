@@ -23,38 +23,51 @@ public struct Beacon: Hashable {
     }
     
     
-    public let beacon: CLBeacon
+    // MARK: - let
     
-    public var proximityUUID: NSUUID {
-        return beacon.proximityUUID
-    }
+    public let proximityUUID: NSUUID
+    public let major: Int
+    public let minor: Int
     
-    public var major: Int {
-        return Int(beacon.major.intValue)
-    }
+    public let beacon: CLBeacon?
     
-    public var minor: Int {
-        return Int(beacon.minor.intValue)
-    }
+    
+    // MARK: - Variables
     
     public var proximity: Proximity {
-        switch beacon.proximity {
-        case .Unknown:
-            return .Unknown
-        case .Immediate:
-            return .Immediate
-        case .Near:
-            return .Near
-        case .Far:
-            return .Far
+        if let beacon = beacon {
+            switch beacon.proximity {
+            case .Unknown:
+                return Proximity.Unknown
+            case .Immediate:
+                return Proximity.Immediate
+            case .Near:
+                return Proximity.Near
+            case .Far:
+                return Proximity.Far
+            }
+        } else {
+            return Proximity.Unknown
         }
     }
     
     
-    // MARK: - Initialize
+    // MARK: - Initialzie
+    
+    public init(proximityUUID: NSUUID, major: Int, minor: Int) {
+        self.proximityUUID = proximityUUID
+        self.major = major
+        self.minor = minor
+        
+        self.beacon = nil
+    }
     
     public init(beacon: CLBeacon) {
         self.beacon = beacon
+        
+        proximityUUID = beacon.proximityUUID
+        major = beacon.major.integerValue
+        minor = beacon.minor.integerValue
     }
     
     

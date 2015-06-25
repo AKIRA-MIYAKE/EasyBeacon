@@ -8,7 +8,11 @@
 
 import Foundation
 
-public enum Usage {
-    case Always
-    case WhenInUse
+public enum Usage: String {
+    case Always = "Always"
+    case WhenInUse = "WhenInUse"
+    
+    public func toString() -> String {
+        return self.rawValue
+    }
 }

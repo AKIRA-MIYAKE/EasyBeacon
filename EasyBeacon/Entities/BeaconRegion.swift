@@ -11,6 +11,8 @@ import CoreLocation
 
 public struct BeaconRegion: Hashable {
     
+    // MARK: - let
+    
     public let identifier: String
     public let proximityUUID: NSUUID
     public let major: Int?
@@ -19,26 +21,7 @@ public struct BeaconRegion: Hashable {
     public let region: CLBeaconRegion
     
     
-    // MARK: - Initialize
-    
-    init(region: CLBeaconRegion) {
-        self.region = region
-        
-        identifier = region.identifier
-        proximityUUID = region.proximityUUID
-        
-        if let majorValue = region.major {
-            major = Int(majorValue.intValue)
-        } else {
-            major = nil
-        }
-        
-        if let minorValue = region.minor {
-            minor = Int(minorValue.intValue)
-        } else {
-            minor = nil
-        }
-    }
+    // MARK: - Initialzie
     
     public init(identifier: String, proximityUUID: NSUUID) {
         self.identifier = identifier
@@ -66,14 +49,37 @@ public struct BeaconRegion: Hashable {
         self.major = major
         self.minor = minor
         
-        region = CLBeaconRegion(proximityUUID: proximityUUID, major: UInt16(major), minor: UInt16(minor), identifier: identifier)
+        region = CLBeaconRegion(
+            proximityUUID: proximityUUID,
+            major: UInt16(major),
+            minor: UInt16(minor),
+            identifier: identifier)
+    }
+    
+    public init(region: CLBeaconRegion) {
+        self.region = region
+        
+        identifier = region.identifier
+        proximityUUID = region.proximityUUID
+        
+        if let majorValue = region.major {
+            major = majorValue.integerValue
+        } else {
+            major = nil
+        }
+        
+        if let minorValue = region.minor {
+            minor = minorValue.integerValue
+        } else {
+            minor = nil
+        }
     }
     
     
     // MARK: - Hashable
     
     public var hashValue: Int {
-        return identifier.hashValue
+        return identifier.hashValue - proximityUUID.hashValue
     }
     
 }

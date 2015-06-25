@@ -12,8 +12,7 @@ import SwiftyEvents
 public typealias Available = _Available<AvailableEvent, Bool>
 
 public enum AvailableEvent {
-    case WillUpdate
-    case DidUpdate
+    case Updated
 }
 
 public class _Available<E, V>: EventEmitter<AvailableEvent, Bool> {
@@ -21,15 +20,9 @@ public class _Available<E, V>: EventEmitter<AvailableEvent, Bool> {
     // MARK: - Variables
     
     public var value: Bool {
-        willSet {
-            if value != newValue {
-                emit(.WillUpdate, value: value)
-            }
-        }
-        
         didSet {
             if value != oldValue {
-                emit(.DidUpdate, value: value)
+                emit(.Updated, value: value)
             }
         }
     }

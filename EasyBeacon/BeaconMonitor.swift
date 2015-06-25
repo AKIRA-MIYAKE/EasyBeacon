@@ -12,85 +12,99 @@ import SwiftyEvents
 
 class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     
-    enum FailEvent {
-        case DidFail
-    }
-    
-    
     // MARK: - let
     
-    let failEmitter = EventEmitter<FailEvent, NSError>()
-    
-    let regions: Set<BeaconRegion>
     let usage: Usage
-    
     let available: Available
     let enteringBeaconRegion: EnteringBeaconRegion
+    let rangedBeacons: RangedBeacons
     let proximityBeacon: ProximityBeacon
     
-    
-    private let notificationCenter = NSNotificationCenter.defaultCenter()
-    
     private let manager: CLLocationManager
-    private let clRegions: Set<CLBeaconRegion>
+    private let notificationCenter: NSNotificationCenter
     
     
     // MARK: - Variables
     
     var isRunning: Bool
     
+    var regions: Set<BeaconRegion> {
+        willSet {
+            if isRunning {
+                clean()
+            }
+        }
+        
+        didSet {
+            if isRunning {
+                for region in regions {
+                    manager.startMonitoringForRegion(region.region)
+                }
+            }
+        }
+    }
+    
     
     // MARK: - Initialize
     
-    init(regions: Set<BeaconRegion>, usage: Usage) {
-        self.regions = regions
+    init(usage: Usage) {
         self.usage = usage
-        
-        manager = CLLocationManager()
-        
-        var clRegions = Set<CLBeaconRegion>()
-        for region in regions {
-            clRegions.insert(region.region)
-        }
-        self.clRegions = clRegions
         
         available = Available(value: false)
         enteringBeaconRegion = EnteringBeaconRegion()
+        rangedBeacons = RangedBeacons()
         proximityBeacon = ProximityBeacon()
         
+        manager = CLLocationManager()
+        notificationCenter = NSNotificationCenter.defaultCenter()
+        
         isRunning = false
+        regions = Set<BeaconRegion>()
         
         super.init()
         
-        /* Setup location manager */
+        initialize()
+    }
+    
+    private func initialize() {
+        // Initialize location manager
+        
         manager.delegate = self
         
         switch CLLocationManager.authorizationStatus() {
+        case .NotDetermined:
+            switch usage {
+            case .Always:
+                manager.requestAlwaysAuthorization()
+            case .WhenInUse:
+                manager.requestWhenInUseAuthorization()
+            }
         case .AuthorizedAlways:
             if usage == .Always {
                 available.value = true
             }
         case .AuthorizedWhenInUse:
             if usage == .WhenInUse {
-                available.value = false
+                available.value = true
             }
         default:
             break
         }
         
+        
+        // Initialize notification center
+        
         notificationCenter.addObserver(
             self,
-            selector: "handleWillEnterForgroundNotification:",
+            selector: "handleWillEnterForeground:",
             name: UIApplicationWillEnterForegroundNotification,
             object: nil)
         
         notificationCenter.addObserver(
             self,
-            selector: "handleDidEnterBackgroundNotification:",
+            selector: "handleDidEnterBackground:",
             name: UIApplicationDidEnterBackgroundNotification,
             object: nil)
-        
-        clean()
     }
     
     deinit {
@@ -102,8 +116,8 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     
     func startMonitoring() {
         if available.value && !isRunning {
-            for region in clRegions {
-                manager.startMonitoringForRegion(region)
+            for region in regions {
+                manager.startMonitoringForRegion(region.region)
             }
             
             isRunning = true
@@ -145,7 +159,7 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     
     // MARK: - Selector
     
-    func handleWillEnterForgroundNotification(notification: NSNotification) {
+    func handleWillEnterForeground(notification: NSNotification) {
         switch usage {
         case .Always:
             break
@@ -154,7 +168,7 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func handleDidEnterBackgroundNotification(notfication: NSNotification) {
+    func handleDidEnterBackground(notificatoin: NSNotification) {
         switch usage {
         case .Always:
             break
@@ -215,6 +229,8 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: [AnyObject]!, inRegion region: CLBeaconRegion!) {
         if let beacons = beacons as? [CLBeacon] {
+            rangedBeacons.value = beacons.map { Beacon(beacon: $0) }
+            
             var proximity: CLBeacon?
             
             for beacon in beacons {
@@ -228,15 +244,6 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
             }
             
             proximityBeacon.value = proximity.map { Beacon(beacon: $0) }
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        if let error = error {
-            failEmitter.emit(.DidFail, value: error)
-        } else {
-            let error = NSError(domain: "", code: 0, userInfo: nil)
-            failEmitter.emit(.DidFail, value: error)
         }
     }
     

@@ -21,6 +21,9 @@
 		A66D50151B198E00005BB932 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D50141B198E00005BB932 /* BeaconManager.swift */; };
 		A66D50171B198E4A005BB932 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66D50161B198E4A005BB932 /* CoreLocation.framework */; };
 		A66D50191B199080005BB932 /* SwiftyEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66D50181B199080005BB932 /* SwiftyEvents.framework */; };
+		A6D935C71B3C3D1C0046924E /* RangedBeacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D935C61B3C3D1C0046924E /* RangedBeacons.swift */; };
+		A6D935C81B3C4F640046924E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66D50161B198E4A005BB932 /* CoreLocation.framework */; };
+		A6D935C91B3C4F750046924E /* SwiftyEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66D50181B199080005BB932 /* SwiftyEvents.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,7 @@
 		A66D50141B198E00005BB932 /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 		A66D50161B198E4A005BB932 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A66D50181B199080005BB932 /* SwiftyEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyEvents.framework; path = Carthage/Build/iOS/SwiftyEvents.framework; sourceTree = "<group>"; };
+		A6D935C61B3C3D1C0046924E /* RangedBeacons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangedBeacons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6D935C91B3C4F750046924E /* SwiftyEvents.framework in Frameworks */,
+				A6D935C81B3C4F640046924E /* CoreLocation.framework in Frameworks */,
 				A66D4FF21B198D2A005BB932 /* EasyBeacon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +144,7 @@
 			children = (
 				A6111DBA1B1CA64C00FA33D9 /* Available.swift */,
 				A66D500C1B198DC9005BB932 /* EnteringBeaconRegion.swift */,
+				A6D935C61B3C3D1C0046924E /* RangedBeacons.swift */,
 				A66D500E1B198DDB005BB932 /* ProximityBeacon.swift */,
 			);
 			path = Models;
@@ -192,6 +199,7 @@
 				A66D4FED1B198D2A005BB932 /* Sources */,
 				A66D4FEE1B198D2A005BB932 /* Frameworks */,
 				A66D4FEF1B198D2A005BB932 /* Resources */,
+				A6D935CA1B3C4FBC0046924E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -255,6 +263,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A6D935CA1B3C4FBC0046924E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyEvents.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A66D4FE11B198D2A005BB932 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -265,6 +290,7 @@
 				A66D50151B198E00005BB932 /* BeaconManager.swift in Sources */,
 				A66D500F1B198DDB005BB932 /* ProximityBeacon.swift in Sources */,
 				A66D500D1B198DC9005BB932 /* EnteringBeaconRegion.swift in Sources */,
+				A6D935C71B3C3D1C0046924E /* RangedBeacons.swift in Sources */,
 				A66D50071B198D9A005BB932 /* BeaconRegion.swift in Sources */,
 				A66D50131B198DF5005BB932 /* BeaconMonitor.swift in Sources */,
 				A66D50111B198DE4005BB932 /* Service.swift in Sources */,
@@ -427,6 +453,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -444,6 +471,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = EasyBeaconTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

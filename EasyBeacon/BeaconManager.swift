@@ -25,6 +25,10 @@ public class BeaconManager {
         return monitor.enteringBeaconRegion
     }
     
+    public var rangedBeacons: RangedBeacons {
+        return monitor.rangedBeacons
+    }
+    
     public var proximityBeacon: ProximityBeacon {
         return monitor.proximityBeacon
     }

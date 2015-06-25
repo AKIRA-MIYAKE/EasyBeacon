@@ -18,18 +18,18 @@ public enum EnteringBeaconRegionEvent {
 
 public class _EnteringBeaconRegion<E: Hashable, V>: EventEmitter<EnteringBeaconRegionEvent, BeaconRegion> {
     
-    // MARK: - Variables
+    // MARK: Variables
     
     public var value: BeaconRegion? {
         willSet {
-            if newValue != value {
-                value.map { emit(.Exit, value: $0) }
+            if let region = value {
+                emit(.Exit, value: region)
             }
         }
         
         didSet {
-            if oldValue != value {
-                value.map { emit(.Enter, value: $0) }
+            if let region = value {
+                emit(.Enter, value: region)
             }
         }
     }
