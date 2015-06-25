@@ -74,13 +74,6 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
             if usage == .WhenInUse {
                 available.value = false
             }
-        case .NotDetermined:
-            switch usage {
-            case .Always:
-                manager.requestAlwaysAuthorization()
-            case .WhenInUse:
-                manager.requestWhenInUseAuthorization()
-            }
         default:
             break
         }

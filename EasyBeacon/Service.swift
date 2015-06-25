@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import CoreLocation
 
 public class Service {
     
     private static var beaconMonitor: BeaconMonitor?
     private static var usage: Usage = .Always
     private static var regions: Set<BeaconRegion> = Set<BeaconRegion>()
+    
+    private static var authLocationManager: CLLocationManager?
     
     public static func defaultManager() -> BeaconManager {
         let monitor: BeaconMonitor
@@ -45,6 +48,27 @@ public class Service {
         self.regions = regions
         
         beaconMonitor = BeaconMonitor(regions: regions, usage: usage)
+    }
+    
+    public static func requestAuthorization() {
+        switch CLLocationManager.authorizationStatus() {
+        case .NotDetermined:
+            switch usage {
+            case .Always:
+                authLocationManager = CLLocationManager()
+                if let manager = authLocationManager {
+                    manager.requestAlwaysAuthorization()
+                }
+            case .WhenInUse:
+                authLocationManager = CLLocationManager()
+                if let manager = authLocationManager {
+                    manager.requestWhenInUseAuthorization()
+                }
+                break
+            }
+        default:
+            break
+        }
     }
     
 }
