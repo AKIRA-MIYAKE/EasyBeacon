@@ -35,7 +35,7 @@ public class Service {
         return BeaconManager(monitor: monitor)
     }
     
-    public static func setWorking(usage: Usage) {
+    public static func setUsage(usage: Usage) {
         self.usage = usage
         
         beaconMonitor = BeaconMonitor(regions: regions, usage: usage)
