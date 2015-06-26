@@ -24,12 +24,24 @@ public class _ProximityBeacon<E: Hashable, V>: EventEmitter<ProximityBeaconEvent
         willSet {
             if value != newValue {
                 emit(.WillUpdate, value: value)
+            } else {
+                if let beacon = value, let newBeacon = newValue {
+                    if beacon.proximity != newBeacon.proximity {
+                        emit(.WillUpdate, value: value)
+                    }
+                }
             }
         }
         
         didSet {
             if value != oldValue {
                 emit(.DidUpdate, value: value)
+            } else {
+                if let beacon = value, let oldBeacon = oldValue {
+                    if beacon.proximity != oldBeacon.proximity {
+                        emit(.DidUpdate, value: value)
+                    }
+                }
             }
         }
     }
