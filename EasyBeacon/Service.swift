@@ -13,7 +13,21 @@ public class Service {
     
     public static private (set) var usage: Usage = .Always
     
-    private static var sharedMonitor: BeaconMonitor?
+    private static var sharedMonitor: BeaconMonitor? {
+        didSet {
+            if let monitor = sharedMonitor {
+                monitor.available.on(.Updated) { value in
+                    if value {
+                        monitor.startMonitoring()
+                    }
+                }
+                
+                if monitor.available.value {
+                    monitor.startMonitoring()
+                }
+            }
+        }
+    }
     
     public static func setUsage(usage: Usage) {
         self.usage = usage
