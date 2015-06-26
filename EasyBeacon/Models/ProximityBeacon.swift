@@ -22,11 +22,15 @@ public class _ProximityBeacon<E: Hashable, V>: EventEmitter<ProximityBeaconEvent
     
     public var value: Beacon? {
         willSet {
-            emit(.WillUpdate, value: value)
+            if value != newValue {
+                emit(.WillUpdate, value: value)
+            }
         }
         
         didSet {
-            emit(.DidUpdate, value: value)
+            if value != oldValue {
+                emit(.DidUpdate, value: value)
+            }
         }
     }
     

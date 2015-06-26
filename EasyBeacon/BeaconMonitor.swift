@@ -202,9 +202,9 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
                         if current.rssi < beacon.rssi {
                             proximity = beacon
                         }
+                    } else {
+                        proximity = beacon
                     }
-                } else {
-                    proximity = beacon
                 }
             }
             
