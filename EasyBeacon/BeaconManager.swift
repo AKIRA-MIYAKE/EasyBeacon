@@ -12,32 +12,32 @@ public class BeaconManager {
     
     // MARK: - let
     
-    private let monitor: BeaconMonitor
+    private let beaconMonitor: BeaconMonitor
     
     
     // MARK: - Variables
     
     public var available: Available {
-        return monitor.available
+        return beaconMonitor.available
     }
     
     public var enteringBeaconRegion: EnteringBeaconRegion {
-        return monitor.enteringBeaconRegion
+        return beaconMonitor.enteringBeaconRegion
     }
     
     public var rangedBeacons: RangedBeacons {
-        return monitor.rangedBeacons
+        return beaconMonitor.rangedBeacons
     }
     
     public var proximityBeacon: ProximityBeacon {
-        return monitor.proximityBeacon
+        return beaconMonitor.proximityBeacon
     }
     
     
     // MARK: - Initialize
     
-    init(monitor: BeaconMonitor) {
-        self.monitor = monitor
+    init(beaconMonitor: BeaconMonitor) {
+        self.beaconMonitor = beaconMonitor
     }
     
 }

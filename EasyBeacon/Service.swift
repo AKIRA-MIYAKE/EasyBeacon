@@ -7,53 +7,28 @@
 //
 
 import Foundation
-import CoreLocation
 
 public class Service {
     
-    public static private (set) var usage: Usage = .Always
+    private static var sharedManager: BeaconManager?
     
-    private static var sharedMonitor: BeaconMonitor? {
-        didSet {
-            if let monitor = sharedMonitor {
-                monitor.available.on(.Updated) { value in
-                    if value {
-                        monitor.startMonitoring()
-                    }
-                }
-                
-                if monitor.available.value {
-                    monitor.startMonitoring()
-                }
-            }
-        }
-    }
-    
-    public static func setUsage(usage: Usage) {
-        self.usage = usage
-        sharedMonitor = BeaconMonitor(usage: usage)
-    }
-    
-    public static func setBeaconRegions(regions: Set<BeaconRegion>) {
-        if let monitor = sharedMonitor {
-            monitor.regions = regions
-        } else {
-            let monitor = BeaconMonitor(usage: usage)
-            monitor.regions = regions
-            
-            sharedMonitor = monitor
-        }
+    public static func setBeaconRegion(beaconRegions: Set<BeaconRegion>, usage: Usage) {
+        let monitor = BeaconMonitor(beaconRegions: beaconRegions, usage: usage)
+        let manager = BeaconManager(beaconMonitor: monitor)
+        
+        sharedManager = manager
     }
     
     public static func defaultManager() -> BeaconManager {
-        if let monitor = sharedMonitor {
-            return BeaconManager(monitor: monitor)
+        if let manager = sharedManager {
+            return manager
         } else {
-            let monitor = BeaconMonitor(usage: usage)
+            let monitor = BeaconMonitor(beaconRegions: [], usage: .Always)
+            let manager = BeaconManager(beaconMonitor: monitor)
             
-            sharedMonitor = monitor
+            sharedManager = manager
             
-            return BeaconManager(monitor: monitor)
+            return manager
         }
     }
     
