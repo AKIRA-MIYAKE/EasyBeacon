@@ -194,7 +194,7 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
         if let beacons  = beacons as? [CLBeacon] {
             rangedBeacons.value = beacons.map { Beacon(beacon: $0) }
             
-            var proximity: CLBeacon?
+            var proximity: CLBeacon? = nil
             
             for beacon in beacons {
                 if beacon.proximity != .Unknown {
@@ -206,6 +206,12 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
                 } else {
                     proximity = beacon
                 }
+            }
+            
+            if let proximity = proximity {
+                proximityBeacon.value = Beacon(beacon: proximity)
+            } else {
+                proximityBeacon.value = nil
             }
         }
     }
