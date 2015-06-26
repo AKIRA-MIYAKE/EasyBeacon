@@ -12,8 +12,8 @@ public class Service {
     
     private static var sharedManager: BeaconManager?
     
-    public static func setBeaconRegion(beaconRegions: Set<BeaconRegion>, usage: Usage) {
-        let monitor = BeaconMonitor(beaconRegions: beaconRegions, usage: usage)
+    public static func setBeaconRegion(beaconRegions: Set<BeaconRegion>) {
+        let monitor = BeaconMonitor(beaconRegions: beaconRegions)
         let manager = BeaconManager(beaconMonitor: monitor)
         
         sharedManager = manager
@@ -23,7 +23,7 @@ public class Service {
         if let manager = sharedManager {
             return manager
         } else {
-            let monitor = BeaconMonitor(beaconRegions: [], usage: .Always)
+            let monitor = BeaconMonitor(beaconRegions: [])
             let manager = BeaconManager(beaconMonitor: monitor)
             
             sharedManager = manager

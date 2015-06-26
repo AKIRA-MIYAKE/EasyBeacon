@@ -4,62 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Frameworks/SwiftyEvents.framework/Headers/SwiftyEvents-Swift.h</key>
-		<data>
-		JsKtiw/cyhHWQIv/DaTPIDboCIs=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Headers/SwiftyEvents.h</key>
-		<data>
-		lgoP9vYkyAlfi45hMRQyxBOATY8=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Info.plist</key>
-		<data>
-		57ipxsgZ9dPuIM3TwiBMpVoLTh4=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/arm.swiftdoc</key>
-		<data>
-		paU6LnWb+afa7gtztU0E9HovOn8=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/arm.swiftmodule</key>
-		<data>
-		F4yxPFLwv1H2iL0pv2jntNxN9Ik=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		c9Gekovi/DzuuKJHvBK1XC8dSuA=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		TTyiD2mfC3pBWh/+j/y73rED3BM=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/i386.swiftdoc</key>
-		<data>
-		YAdkbrtZNJxhcLywnsOJZ9NI9YE=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/i386.swiftmodule</key>
-		<data>
-		x/P8aWqNzaV471liTjat11gWJ08=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/x86_64.swiftdoc</key>
-		<data>
-		NLhoOWnU8xLmjxVO7/P3q0Io4uk=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/x86_64.swiftmodule</key>
-		<data>
-		SCReeixMaNsa13wnMkKWP5KgmKc=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/module.modulemap</key>
-		<data>
-		A7PXbAM1Ew9PhzvEwrMqNL/s2Sk=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/SwiftyEvents</key>
-		<data>
-		46y3USVxqIe+vJ02L66i7rRSlb0=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/_CodeSignature/CodeResources</key>
-		<data>
-		TWObkn6uewjY/7Aw3a50to2Ascg=
-		</data>
 		<key>Headers/EasyBeacon-Swift.h</key>
 		<data>
 		JsKtiw/cyhHWQIv/DaTPIDboCIs=
@@ -78,7 +22,7 @@
 		</data>
 		<key>Modules/EasyBeacon.swiftmodule/arm.swiftmodule</key>
 		<data>
-		9HTQqgtZ/nxme8GfL6t+ok6v3Rw=
+		31+m2ILJRc1XhXBcnSCCbsmMp8k=
 		</data>
 		<key>Modules/EasyBeacon.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -86,7 +30,7 @@
 		</data>
 		<key>Modules/EasyBeacon.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		Q5m4lUM01BLDAXLPIx2KvId2RhU=
+		Ayy8AEFRYChPMQ1YbfiTmkwQhjc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -95,62 +39,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Frameworks/SwiftyEvents.framework/Headers/SwiftyEvents-Swift.h</key>
-		<data>
-		JsKtiw/cyhHWQIv/DaTPIDboCIs=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Headers/SwiftyEvents.h</key>
-		<data>
-		lgoP9vYkyAlfi45hMRQyxBOATY8=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Info.plist</key>
-		<data>
-		57ipxsgZ9dPuIM3TwiBMpVoLTh4=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/arm.swiftdoc</key>
-		<data>
-		paU6LnWb+afa7gtztU0E9HovOn8=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/arm.swiftmodule</key>
-		<data>
-		F4yxPFLwv1H2iL0pv2jntNxN9Ik=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		c9Gekovi/DzuuKJHvBK1XC8dSuA=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		TTyiD2mfC3pBWh/+j/y73rED3BM=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/i386.swiftdoc</key>
-		<data>
-		YAdkbrtZNJxhcLywnsOJZ9NI9YE=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/i386.swiftmodule</key>
-		<data>
-		x/P8aWqNzaV471liTjat11gWJ08=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/x86_64.swiftdoc</key>
-		<data>
-		NLhoOWnU8xLmjxVO7/P3q0Io4uk=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/SwiftyEvents.swiftmodule/x86_64.swiftmodule</key>
-		<data>
-		SCReeixMaNsa13wnMkKWP5KgmKc=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/Modules/module.modulemap</key>
-		<data>
-		A7PXbAM1Ew9PhzvEwrMqNL/s2Sk=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/SwiftyEvents</key>
-		<data>
-		46y3USVxqIe+vJ02L66i7rRSlb0=
-		</data>
-		<key>Frameworks/SwiftyEvents.framework/_CodeSignature/CodeResources</key>
-		<data>
-		TWObkn6uewjY/7Aw3a50to2Ascg=
-		</data>
 		<key>Headers/EasyBeacon-Swift.h</key>
 		<data>
 		JsKtiw/cyhHWQIv/DaTPIDboCIs=
@@ -165,7 +53,7 @@
 		</data>
 		<key>Modules/EasyBeacon.swiftmodule/arm.swiftmodule</key>
 		<data>
-		9HTQqgtZ/nxme8GfL6t+ok6v3Rw=
+		31+m2ILJRc1XhXBcnSCCbsmMp8k=
 		</data>
 		<key>Modules/EasyBeacon.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -173,7 +61,7 @@
 		</data>
 		<key>Modules/EasyBeacon.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		Q5m4lUM01BLDAXLPIx2KvId2RhU=
+		Ayy8AEFRYChPMQ1YbfiTmkwQhjc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>

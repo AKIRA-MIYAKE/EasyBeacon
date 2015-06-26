@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A601CAE31B2864BF002E9C30 /* Usage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A601CAE21B2864BF002E9C30 /* Usage.swift */; };
 		A6111DBB1B1CA64C00FA33D9 /* Available.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6111DBA1B1CA64C00FA33D9 /* Available.swift */; };
 		A66D4FEC1B198D2A005BB932 /* EasyBeacon.h in Headers */ = {isa = PBXBuildFile; fileRef = A66D4FEB1B198D2A005BB932 /* EasyBeacon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A66D4FF21B198D2A005BB932 /* EasyBeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66D4FE61B198D2A005BB932 /* EasyBeacon.framework */; };
@@ -37,7 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A601CAE21B2864BF002E9C30 /* Usage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usage.swift; sourceTree = "<group>"; };
 		A6111DBA1B1CA64C00FA33D9 /* Available.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Available.swift; sourceTree = "<group>"; };
 		A66D4FE61B198D2A005BB932 /* EasyBeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyBeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66D4FEA1B198D2A005BB932 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -153,7 +151,6 @@
 		A66D50031B198D66005BB932 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				A601CAE21B2864BF002E9C30 /* Usage.swift */,
 				A66D50061B198D9A005BB932 /* BeaconRegion.swift */,
 				A66D50041B198D8E005BB932 /* Beacon.swift */,
 			);
@@ -286,7 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A66D50051B198D8E005BB932 /* Beacon.swift in Sources */,
-				A601CAE31B2864BF002E9C30 /* Usage.swift in Sources */,
 				A66D50151B198E00005BB932 /* BeaconManager.swift in Sources */,
 				A66D500F1B198DDB005BB932 /* ProximityBeacon.swift in Sources */,
 				A66D500D1B198DC9005BB932 /* EnteringBeaconRegion.swift in Sources */,

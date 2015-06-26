@@ -23,7 +23,6 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     private let notificationCenter: NSNotificationCenter
     
     private let beaconRegions: Set<BeaconRegion>
-    private let usage: Usage
     
     
     // MARK: - Variables
@@ -33,9 +32,8 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     
     // MARK: - Initialzie
     
-    init(beaconRegions: Set<BeaconRegion>, usage: Usage) {
+    init(beaconRegions: Set<BeaconRegion>) {
         self.beaconRegions = beaconRegions
-        self.usage = usage
         
         available = Available(value: false)
         enteringBeaconRegion = EnteringBeaconRegion()
@@ -59,20 +57,9 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
         
         switch CLLocationManager.authorizationStatus() {
         case .NotDetermined:
-            switch usage {
-            case .Always:
-                locationManager.requestAlwaysAuthorization()
-            case .WhenInUse:
-                locationManager.requestWhenInUseAuthorization()
-            }
+            locationManager.requestAlwaysAuthorization()
         case .AuthorizedAlways:
-            if usage == .Always {
-                available.value = true
-            }
-        case .AuthorizedWhenInUse:
-            if usage == .WhenInUse {
-                available.value = true
-            }
+            available.value = true
         default:
             break
         }
@@ -115,24 +102,7 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     // MARK: - Private method
     
     private func startMonitoring() {
-        let startFlag: Bool
-        
         if available.value && !isRunning {
-            switch usage {
-            case .Always:
-                startFlag = true
-            case .WhenInUse:
-                if UIApplication.sharedApplication().applicationState == .Active {
-                    startFlag = true
-                } else {
-                    startFlag = false
-                }
-            }
-        } else {
-            startFlag = false
-        }
-        
-        if startFlag {
             for region in beaconRegions {
                 locationManager.startMonitoringForRegion(region.region)
             }
@@ -167,24 +137,14 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     // MARK: - Selector
     
     func handleDidBecomeActive(notification: NSNotification) {
-        switch usage {
-        case .Always:
-            for region in beaconRegions {
-                locationManager.requestStateForRegion(region.region)
-            }
-        case .WhenInUse:
-            startMonitoring()
+        for region in beaconRegions {
+            locationManager.requestStateForRegion(region.region)
         }
     }
     
     func handleDidEnterBackground(notification: NSNotification) {
-        switch usage {
-        case .Always:
-            for region in beaconRegions {
-                locationManager.stopRangingBeaconsInRegion(region.region)
-            }
-        case .WhenInUse:
-            stopMonitoring()
+        for region in beaconRegions {
+            locationManager.stopRangingBeaconsInRegion(region.region)
         }
     }
     
@@ -194,20 +154,14 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         switch status {
         case .AuthorizedAlways:
-            if usage == .Always {
-                available.value = true
-            }
-        case .AuthorizedWhenInUse:
-            if usage == .WhenInUse {
-                available.value = true
-            }
+            available.value = true
         default:
             available.value = false
         }
     }
     
     func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLRegion!) {
-        manager.requestStateForRegion(region)
+        locationManager.requestStateForRegion(region)
     }
     
     func locationManager(manager: CLLocationManager!, didDetermineState state: CLRegionState, forRegion region: CLRegion!) {
@@ -215,7 +169,7 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
             switch state {
             case .Inside:
                 enteringBeaconRegion.value = BeaconRegion(region: region)
-                manager.startRangingBeaconsInRegion(region)
+                locationManager.startRangingBeaconsInRegion(region)
             default:
                 break
             }
@@ -225,13 +179,13 @@ class BeaconMonitor: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
         if let region = region as? CLBeaconRegion {
             enteringBeaconRegion.value = BeaconRegion(region: region)
-            manager.startRangingBeaconsInRegion(region)
+            locationManager.startRangingBeaconsInRegion(region)
         }
     }
     
     func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
         if let region = region as? CLBeaconRegion {
-            manager.stopRangingBeaconsInRegion(region)
+            locationManager.stopRangingBeaconsInRegion(region)
             enteringBeaconRegion.value = nil
         }
     }
